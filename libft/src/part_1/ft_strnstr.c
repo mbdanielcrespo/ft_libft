@@ -1,4 +1,4 @@
-char	*ft_strnstr(const char *big, const char *str, int n)
+/*char	*ft_strnstr(const char *big, const char *str, int n)
 {
 	int	c;
 	int	w;
@@ -23,4 +23,4 @@ char	*ft_strnstr(const char *big, const char *str, int n)
 		c++;
 	}
 	return (NULL);
-}
+}*/

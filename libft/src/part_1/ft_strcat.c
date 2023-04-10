@@ -1,9 +1,9 @@
-#include <libft.h>
+#include "../../libft.h"
 
-char	*strcat(char *s1, char *s2)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	int	c;
-	int	w;
+	t_i32	c;
+	t_i32	w;
 
 	c = 0;
 	w = 0;

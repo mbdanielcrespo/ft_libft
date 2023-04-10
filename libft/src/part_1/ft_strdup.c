@@ -1,8 +1,8 @@
-#include "libft.h"
+#include "../../libft.h"
 
-char	*ft_strdup(char *str)
+char	*ft_strdup(const char *str)
 {
-	int	c;
+	t_i32	c;
 	char	*cpy;
 
 	c = 0;
