@@ -6,7 +6,7 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:23:59 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/12 13:26:37 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:51:16 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -16,7 +16,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	t_u32	c;
 	t_u32	w;
 	char	*res;
-	
+
 	c = 0;
 	w = 0;
 	c = ft_strlen(s1) + ft_strlen(s2);

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 13:23:59 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/17 14:28:28 by danalmei         ###   ########.fr       */
+/*   Created: 2023/04/17 17:11:58 by danalmei          #+#    #+#             */
+/*   Updated: 2023/04/17 17:20:30 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_bzero(void *str, t_size n)
+t_u32	ft_memcmp(const void *str1, const void *str2, t_size n)
 {
-	t_u8	*ptr;
+	t_size	c;
+	t_u32	*s1;
+	t_u32	*s2;
 
-	ptr = (t_u8 *)str;
-	while (n > 0)
+	c = 0;
+	s1 = (t_u32 *)str1;
+	s2 = (t_u32 *)str2;
+	while (c < n && s1[c] == s2[c])
 	{
-		ptr[n] = 0;
-		n--;
+		c++;
 	}
-	return (ptr);
+	return (s1[c] - s2[c]);
 }

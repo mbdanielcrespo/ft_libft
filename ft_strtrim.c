@@ -6,14 +6,14 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 13:27:49 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/17 13:27:57 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:30:57 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 static t_u32	is_in_set(char ch, const char *set)
 {
-	t_u32 c;
+	t_u32	c;
 
 	c = 0;
 	while (set[c] != '\0')

@@ -6,7 +6,7 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 14:46:11 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/17 13:24:35 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:35:59 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memset(void	*ptr, t_i32 ch, t_size n)
 {
 	char	*strptr;
 	t_size	c;
-	
+
 	c = 0;
 	strptr = (char *)ptr;
 	while (c < n)

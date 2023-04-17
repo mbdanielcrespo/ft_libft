@@ -27,27 +27,32 @@ void	*ft_bzero(void	*str, t_size n);
 void	*ft_calloc(t_size count, t_size size);
 char	*ft_strdup(const char *str);
 void	*ft_memset(void	*ptr, t_i32 ch, t_size n);
+void	*ft_memchr(const void *s, t_i32 ch, t_size n);
 void	*ft_memcpy(void	*destptr, void *srcptr, t_size n);
+t_u32	ft_memcmp(const void *str1, const void *str2, t_size n);
 void	*ft_memmove(void *destptr, void *srcptr, t_size n);
 
 t_u32	ft_isdigit(t_u8 c);
-t_u32   ft_isascii(t_u8 c);
+t_i32   ft_isascii(t_i32 c);
 t_u32   ft_isprint(t_u8 c);
 t_u32   ft_isalpha(t_u8 c);
 t_u32   ft_isalnum(t_u8 c);
 
+t_u32	ft_toupper(t_u32 ch);
+t_u32	ft_tolower(t_u32 ch);
 t_size	ft_strlen(const char *str);
 t_size	ft_strlcpy(char *dest, const char *src, t_size size);
 t_size	ft_strlcat(char *s1, const char *s2, t_size n);
+
 char	*ft_strnstr(const char *big, const char *str, t_i32 n);
 char	*ft_strchr(const char *str, t_u8 ch);
-
 char	*ft_strrchr(const char *str, t_u8 ch);
 char	*ft_strjoin(const char *s1, const char *s2);
 char	*ft_substr(const char *s, t_u32 start, t_size len);
+
 char	*ft_strtrim(const char *s1, const char *set);
 char	**ft_split(const char *s, char ch);
-
+t_i32	ft_atoi(const char *str);
 char	*itoa(t_u32 n);
 
 #endif
