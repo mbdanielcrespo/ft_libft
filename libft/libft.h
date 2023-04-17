@@ -3,6 +3,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <strings.h>
+# include <stdio.h>
 
 //typedef bool	t_bool;
 
@@ -32,6 +33,12 @@ t_size	ft_strlcpy(char *dest, const char *src, t_size size);
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strncat(char *s1, const char *s2, t_u32 n);
 t_size	ft_strlcat(char *s1, const char *s2, t_size n);
+void	*ft_calloc(t_size count, t_size size);
+void	*ft_bzero(void *str, t_size n);
 
+char	*ft_strjoin(const char *s1, const char *s2);
+char	*ft_substr(const char *s, t_u32 start, t_size len);
+char	*ft_strtrim(const char *s1, const char *set);
+char	**ft_split(const char *s, char ch);
 
 #endif
