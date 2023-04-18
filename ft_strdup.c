@@ -6,7 +6,7 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 15:23:39 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/12 15:23:45 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:29:03 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ char	*ft_strdup(const char *str)
 		c++;
 	}
 	cpy = (char *)malloc(sizeof(char) * (c + 1));
+	if (!cpy)
+		return (NULL);
 	c = 0;
 	while (str[c] != '\0')
 	{

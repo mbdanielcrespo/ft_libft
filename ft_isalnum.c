@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_u32	ft_isalnum(t_u8 c)
+t_i32	ft_isalnum(t_i32 c)
 {
 	if (!ft_isalpha(c) && !ft_isdigit(c))
 	{

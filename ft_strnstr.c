@@ -6,7 +6,7 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 19:03:51 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/12 12:47:56 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/18 17:44:46 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ char	*ft_strnstr(const char *big, const char *str, t_i32 n)
 
 	c = 0;
 	w = 0;
-	if (!str || !*str)
-	{
+	if (ft_strlen(str) == 0 || big == str)
 		return ((char *)big);
-	}
 	while (big[c] != '\0' && c < n)
 	{
 		while (big[c + w] == str[w] && (c + w) < n)

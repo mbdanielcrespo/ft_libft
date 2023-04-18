@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_u32	ft_isalpha(t_u8 c)
+t_i32	ft_isalpha(t_i32 c)
 {
 	if ((c < 97 || c > 122) && (c < 65 || c > 90))
 	{

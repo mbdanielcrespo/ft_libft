@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_u32	ft_toupper(t_u32 ch)
+t_i32	ft_toupper(t_i32 ch)
 {
 	if (ch >= 97 && ch <= 122)
 	{

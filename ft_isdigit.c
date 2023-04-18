@@ -6,15 +6,15 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:13:48 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/17 13:40:43 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/18 14:05:46 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_u32	ft_isdigit(t_u8 c)
+t_i32	ft_isdigit(t_i32 c)
 {
-	if (c < 30 || c > 39)
+	if (c < '0' || c > '9')
 	{
 		return (0);
 	}

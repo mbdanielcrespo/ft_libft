@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_u32	ft_tolower(t_u32 ch)
+t_i32	ft_tolower(t_i32 ch)
 {
 	if (ch >= 65 && ch <= 90)
 	{

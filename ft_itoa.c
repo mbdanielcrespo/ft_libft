@@ -1,4 +1,16 @@
-#include "../libft.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/18 13:50:07 by danalmei          #+#    #+#             */
+/*   Updated: 2023/04/18 19:58:40 by danalmei         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 static char	*ft_strrev(char	*str, t_size len)
 {
@@ -13,7 +25,6 @@ static char	*ft_strrev(char	*str, t_size len)
 		str[len - 1 - c] = aux;
 		c++;
 	}
-	printf("strrev -> %s\n", str);
 	return (str);
 }
 
@@ -24,30 +35,21 @@ char	*ft_itoa(t_i32 n)
 	char	*str;
 
 	c = 0;
-	is_neg = 0;
-	str = (char *)ft_calloc(12, sizeof(char));
-	if (!str) return (NULL);
-	if (n < 0)
-	{
-		is_neg = 1;
+	l = n;
+	is_neg = l;
+	str = (char *)ft_calloc(13, sizeof(char));
+	if (!str)
+		return (NULL);
+	if (l < 0)
+		str++ = '-'
 		n = -n;
-	}
 	while (n != 0)
 	{
-		str[c] = (n % 10) + '0';
+		str++ = (n % 10) + '0';
 		n /= 10;
-		printf("char -> %c\n", str[c]);
-		c++;
 	}
-	if (is_neg)
+	if (is_neg < 0)
 		str[c++] = '-';
 	str[c] = '\0';
 	return (ft_strrev(str, c));
 }
-/*
-int	main()
-{
-	int	n = -2147483647;
-	printf("Output -> %s", ft_itoa(n));
-}
-*/
