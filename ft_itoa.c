@@ -12,44 +12,69 @@
 
 #include "libft.h"
 
-static char	*ft_strrev(char	*str, t_size len)
+static t_i32	ft_count_int(signed long long int n, t_i32 *sign)
 {
-	t_size	c;
-	char	aux;
+	t_i32	c;
 
 	c = 0;
-	while (c < (len / 2))
+	*sign = 0;
+	if (n < 0)
 	{
-		aux = str[c];
-		str[c] = str[len - 1 - c];
-		str[len - 1 - c] = aux;
+		*sign = 1;
+		c++;
+		n = -n;
+	}
+	if (n == 0)
+	{
+		c = 1;
+		*sign = -1;
+	}
+	while (n > 0)
+	{
+		n = n / 10;
 		c++;
 	}
-	return (str);
+	return (c);
+}
+
+static void	ft_iterate(char *str, t_i32 len, signed long long int nb)
+{
+	while (nb > 0)
+	{
+		str[len] = nb % 10 + '0';
+		nb = nb / 10;
+		len--;
+	}
 }
 
 char	*ft_itoa(t_i32 n)
 {
 	t_i32	c;
-	t_i32	is_neg;
+	t_i32	sign;
+	signed long long int			nb;
+	t_i32	len;
 	char	*str;
-
+	
 	c = 0;
-	l = n;
-	is_neg = l;
-	str = (char *)ft_calloc(13, sizeof(char));
+	nb = n;
+	len = ft_count_int(nb, &sign);
+	str = (char *)ft_calloc((len + 1), sizeof(char));
 	if (!str)
 		return (NULL);
-	if (l < 0)
-		str++ = '-'
-		n = -n;
-	while (n != 0)
+	if (sign && (sign != -1))
 	{
-		str++ = (n % 10) + '0';
-		n /= 10;
+		nb = -nb;
+		str[0] = '-';
 	}
-	if (is_neg < 0)
-		str[c++] = '-';
-	str[c] = '\0';
-	return (ft_strrev(str, c));
+	else if (sign == -1)
+		str[0] = '0';
+	str[len--] = '\0';
+	ft_iterate(str, len, nb);
+	return (str);
 }
+/*
+int	main()
+{
+	printf("Output -> %s, %s, %s, %s, %s\n", ft_itoa(0), ft_itoa(40), ft_itoa(-45), ft_itoa(-2147483648), ft_itoa(2147483647));
+}
+*/

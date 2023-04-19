@@ -26,7 +26,7 @@ t_i32	ft_atoi(const char *str)
 {
 	t_i32	c;
 	t_i32	sign;
-	t_u32	res;
+	t_i32	res;
 
 	sign = 1;
 	res = 0;
@@ -35,7 +35,7 @@ t_i32	ft_atoi(const char *str)
 	{
 		c++;
 	}
-	if (str[c] == '+' || str[c] == '-')
+	if (str[c] == '+' || str[c] == '-')z
 	{
 		if (str[c] == '-')
 		{
@@ -50,3 +50,13 @@ t_i32	ft_atoi(const char *str)
 	}
 	return ((t_i32)(sign * res));
 }
+/*
+int	main()
+{
+	int	a = 40;
+	int	b = -345;
+	int	c = -2147483648;
+
+	printf("Outputs -> %s, %s, %s\n", a, b c);
+}
+*/
