@@ -6,7 +6,7 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:53:02 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/18 19:35:36 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/19 21:48:56 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef unsigned char	t_u8;
 typedef const unsigned char	ct_u8;
 typedef signed int		t_i32;
 typedef unsigned int	t_u32;
+typedef signed long long int	t_i64;
 
 typedef size_t			t_size;
 
@@ -65,5 +66,14 @@ void	ft_putchar_fd(t_i8 c, t_i32 fd);
 void	ft_putendl_fd(char *s, t_i32 fd);
 void	ft_putnbr_fd(t_i32 n, t_i32 fd);
 void	ft_putstr_fd(char *s, t_i32 fd);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstclear(t_list **lst, void (*del)(void *));
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstlast(t_list *lst);
+t_list	*ft_lstmap(t_list *lst, void*(*f)(void *), void (*del)(void *));
+t_list	*ft_lstnew(void *content);
+t_i32	ft_lstsize(t_list *lst);
 
 #endif

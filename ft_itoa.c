@@ -6,7 +6,7 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:50:07 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/18 19:58:40 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/19 15:18:00 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static t_i32	ft_count_int(signed long long int n, t_i32 *sign)
 	return (c);
 }
 
-static void	ft_iterate(char *str, t_i32 len, signed long long int nb)
+static void	ft_iterate(char *str, t_i32 len, t_i64 nb)
 {
 	while (nb > 0)
 	{
@@ -49,13 +49,11 @@ static void	ft_iterate(char *str, t_i32 len, signed long long int nb)
 
 char	*ft_itoa(t_i32 n)
 {
-	t_i32	c;
 	t_i32	sign;
-	signed long long int			nb;
+	t_i64	nb;
 	t_i32	len;
 	char	*str;
-	
-	c = 0;
+
 	nb = n;
 	len = ft_count_int(nb, &sign);
 	str = (char *)ft_calloc((len + 1), sizeof(char));
@@ -75,6 +73,7 @@ char	*ft_itoa(t_i32 n)
 /*
 int	main()
 {
-	printf("Output -> %s, %s, %s, %s, %s\n", ft_itoa(0), ft_itoa(40), ft_itoa(-45), ft_itoa(-2147483648), ft_itoa(2147483647));
+	printf("Output -> %s, %s, %s, %s, %s\n", ft_itoa(0), ft_itoa(40)
+	, ft_itoa(-45), ft_itoa(-2147483648), ft_itoa(2147483647));
 }
 */

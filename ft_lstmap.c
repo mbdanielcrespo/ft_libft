@@ -1,28 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 14:46:11 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/19 15:24:01 by danalmei         ###   ########.fr       */
+/*   Created: 2023/04/12 13:13:48 by danalmei          #+#    #+#             */
+/*   Updated: 2023/04/18 14:05:46 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void	*ptr, t_i32 ch, t_size n)
+t_list	*ft_lstmap(t_list *lst, void*(*f)(void *), void (*del)(void *))
 {
-	char	*strptr;
-	t_size	c;
+	t_list	*a;
+	t_list	*new;
+	t_list	*aux;
 
-	c = 0;
-	strptr = (char *)ptr;
-	while (c < n)
+	a = NULL;
+	if (lst && f)
 	{
-		strptr[c] = ch;
-		c++;
+		aux = lst;
+		h = ft_lstnew((f)(tmp->content));
+		if (!h)
+			return (NULL);
+		tmp = tmp->next;
+		while (tmp != NULL)
+		{
+			new = ft_lstnew((f)(aux->content));
+			if (!new)
+			{
+				ft_lstclear(&, del);
+				h = NULL;
+				break ;
+			}
+			ft_lstadd_back(&h, new);
+			aux = aux->next;
+		}
 	}
-	return (ptr);
+	return (a);
 }

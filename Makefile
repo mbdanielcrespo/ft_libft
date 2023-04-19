@@ -17,8 +17,10 @@ $(NAME): $(OBJ)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+bonus:	${OBJS_BONUS}
+		ar rcs ${NAME} ${OBJS_BONUS}
 clean:
-	$(RM) $(OBJ)
+	$(RM) $(OBJ) ${OBJS_BONUS}
 
 fclean: clean
 	$(RM) $(NAME)

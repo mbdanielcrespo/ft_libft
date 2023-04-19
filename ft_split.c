@@ -5,88 +5,93 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/17 13:28:10 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/18 18:44:47 by danalmei         ###   ########.fr       */
+/*   Created: 2023/04/12 13:23:59 by danalmei          #+#    #+#             */
+/*   Updated: 2023/04/19 17:59:10 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static t_u32	ft_count(const char *s1, char ch)
+static t_i32	ft_count_words(char const *s, char ch)
 {
-	t_u32	c;
-	t_u32	w;
+	t_i32	c;
+	t_i32	w;
 
 	c = 0;
 	w = 0;
-	while (s1[c] != '\0')
+	while (s[c] != '\0')
 	{
-		if (s1[c] == ch)
+		if (s[c] == ch)
 		{
 			w++;
 		}
 		c++;
 	}
-	return (w);
+	return (w + 1);
 }
 
-static char	*ft_split2(const char *str, t_i32 start, t_i32 finish)
+static char	*ft_wordup(const char *s, t_i32 start, t_i32 finish)
 {
-	char	*wrd;
 	t_i32	c;
+	t_i32	len;
+	char	*str;
 
 	c = 0;
-	wrd = (char *)malloc((finish - start + 1) * sizeof(char));
-	if (!wrd)
-	{
+	len = finish - start;
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str)
 		return (NULL);
-	}
-	while (start < finish)
+	while ((start + c) < finish)
 	{
-		wrd[c] = str[start];
+		str[c] = s[c + start];
 		c++;
-		start++;
 	}
-	wrd[c] = '\0';
-	return (wrd);
+	str[c] = '\0';
+	return (str);
 }
 
-static char	*ft_split3(const char *s, char ch, t_size c)
+char	**ft_split(char const *s, char ch)
 {
-	t_size	finish;
-
-	finish = c;
-	while (s[finish] != ch && s[finish] != '\0')
-	{
-		finish++;
-	}
-	return (ft_split2(s, c, finish));
-}
-
-char	**ft_split(const char *s, char ch)
-{
-	t_size	c;
-	t_size	w;
-	t_size	i;
+	t_i32	w;
+	t_i32	start;
+	t_i32	finish;
 	char	**strs;
 
-	c = 0;
 	w = 0;
-	i = 0;
-	strs = (char **)malloc((ft_count(s, ch) + 2) * sizeof(char *));
-	if (!s || !strs)
+	start = 0;
+	finish = 0;
+	if (!s)
 		return (NULL);
-	while (c <= ft_strlen(s))
+	strs = (char **)malloc((ft_count_words(s, ch) + 1) * sizeof(char *));
+	if (!strs)
+		return (NULL);
+	while (w < ft_count_words(s, ch))
 	{
-		if (s[c] != ch && i == 0)
-		{
-			i = 1;
-			strs[w++] = ft_split3(s, ch, c);
-		}
-		else if (s[c] == ch && i == 1)
-			i = 0;
-		c++;
+		while (s[finish] != ch)
+			finish++;
+		strs[w] = ft_wordup(s, start, finish);
+		if (!strs[w])
+			while ()
+			return (NULL);
+		w++;
+		start = finish++;
 	}
 	strs[w] = NULL;
 	return (strs);
+}
+
+int	main()
+{
+	t_i32	c;
+	char	**strs;
+	
+	c = 0;
+	strs = ft_split("\0aa\0bbb", '\0');
+	printf("Input str -> Hello world! Bye world!, del -> \' \'\n");
+	while (strs[c] != NULL)
+	{
+		printf("Spit str -> %s\n", strs[c]);
+		c++;
+	}
+	return (0);
 }
