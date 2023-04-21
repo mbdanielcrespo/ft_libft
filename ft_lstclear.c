@@ -6,7 +6,7 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:13:48 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/18 14:05:46 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/20 14:32:06 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		aux = *lst;
 		while (aux != NULL)
 		{
-			*lst = tmp->next;
-			ft_lsdelone(aux, del);
+			*lst = aux->next;
+			ft_lstdelone(aux, del);
 			aux = *lst;
 		}
 		lst = NULL;

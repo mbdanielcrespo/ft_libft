@@ -6,7 +6,7 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:13:48 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/18 14:05:46 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/20 14:34:56 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,20 @@ t_list	*ft_lstmap(t_list *lst, void*(*f)(void *), void (*del)(void *))
 	if (lst && f)
 	{
 		aux = lst;
-		h = ft_lstnew((f)(tmp->content));
-		if (!h)
+		a = ft_lstnew((f)(aux->content));
+		if (!a)
 			return (NULL);
-		tmp = tmp->next;
-		while (tmp != NULL)
+		aux = aux->next;
+		while (aux != NULL)
 		{
 			new = ft_lstnew((f)(aux->content));
 			if (!new)
 			{
-				ft_lstclear(&, del);
-				h = NULL;
+				ft_lstclear(&a, del);
+				a = NULL;
 				break ;
 			}
-			ft_lstadd_back(&h, new);
+			ft_lstadd_back(&a, new);
 			aux = aux->next;
 		}
 	}

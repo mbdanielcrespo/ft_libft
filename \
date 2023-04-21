@@ -6,7 +6,7 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:23:59 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/21 20:28:09 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/21 17:09:33 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,46 +31,35 @@ static t_i32	ft_count_words(char const *s, char ch)
 	return (w);
 }
 
-char	*ft_wrdup(char const *s, char ch, char **strs)
-{
-	t_i32	c;
-	char	*str;
-
-	c = 0;
-	while (s[c] != ch && s[c] != '\0')
-		c++;
-	str = (char *)malloc((c + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	c = 0;
-	while (s[c] != ch && s[c] != '\0')
-	{
-		str[c] = s[c];
-		c++;
-	}
-	str[c] = '\0';
-	*strs = str;
-	return ((char *)s + c);
-}
-
 char	**ft_split(char const *s, char ch)
 {
-	char	**strz;
+	t_i32	c;
+	t_i32	w;
+	t_i32	i;
+	t_i32	wc;
 	char	**strs;
 	
+	c = 0;
+	w = 0;
+	i = 0;
+	wc = 0;
+	printf("WC -> %d\n", ft_count_words(s, ch));
 	strs = (char **)malloc((ft_count_words(s, ch) + 1) * sizeof(char *));
 	if (!strs)
 		return (NULL);
-	strz = strs;
-	while (*s != '\0')
+	while (s[i] != '\0')
 	{
-		if (*s != '\0' && *s != ch)
-                        s = ft_wrdup(s, ch, strs++);
-		while (*s == ch)
-			s++;		
+		c = 0;
+		while (s[i] != ch && s[i] != '\0')
+			i++;
+		while (s[i] == ch && s[i++] != '\0')
+			c++;
+		printf("len -> %d, str -> %s\n", ft_strlen(ft_substr(s, w, (i - w - c)), ft_substr(s, w, (i - w - c));
+		strs[wc++] = ft_substr(s, w, (i - w - c));
+		w = i;
 	}
-	strs = NULL;
-	return (strz);
+	strs[wc] = NULL;
+	return (strs);
 }
 
 int	main()
@@ -79,22 +68,29 @@ int	main()
 	char	**strs;
 	
 	c = 0;
-
-	strs = ft_split("\0aa\0bbb", '\0');
-	printf("Input str -> \\0aa\\0bbb");
+	strs = ft_split("HelloTworld!TTByeTworld!", 'T');
+	printf("Input str -> Hello world! Bye world!, del -> \' \'\n");
 	while (strs[c] != NULL)
 	{
 		printf("Spit str -> %s\n", strs[c]);
 		c++;
 	}
-	strs = ft_split("      split       this for   me  !       ", ' ');
-        printf("Input str ->       split       this for   me  !       , del -> \' \'\n");
+	c = 0;
+        strs = ft_split("      split       this for   me  !       ", ' ');
+        printf("Input str ->       split       this for   me  !       \n");
         while (strs[c] != NULL)
         {
                 printf("Spit str -> %s\n", strs[c]);
                 c++;
         }
-
-        return (0);
+	c = 0;
+        strs = ft_split("                  olol", ' ');
+        printf("Input str ->       split       this for   me  !       \n");
+        while (strs[c] != NULL)
+        {
+                printf("Spit str -> %s\n", strs[c]);
+                c++;
+        }
+	return (0);
 }
 
