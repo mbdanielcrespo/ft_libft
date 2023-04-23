@@ -6,13 +6,13 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 13:03:52 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/12 12:51:00 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/23 19:02:07 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, t_u8 ch)
+char	*ft_strchr(const char *str, char ch)
 {
 	t_u32	c;
 
@@ -21,7 +21,7 @@ char	*ft_strchr(const char *str, t_u8 ch)
 	{
 		c++;
 	}
-	if (str[c] == (char)ch)
+	if (str[c] == ch)
 	{
 		return ((char *)&str[c]);
 	}

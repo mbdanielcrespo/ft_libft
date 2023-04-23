@@ -6,27 +6,25 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:11:58 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/18 18:00:22 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/23 19:22:29 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_u32	ft_memcmp(const void *str1, const void *str2, t_size n)
+int	ft_memcmp(const void *s1, const void *s2, t_size n)
 {
 	t_size	c;
-	ct_u8	*s1;
-	ct_u8	*s2;
+	t_cuc	*ss1;
+	t_cuc	*ss2;
 
 	c = 0;
-	s1 = (const unsigned char *)str1;
-	s2 = (const unsigned char *)str2;
+	ss1 = (const unsigned char *)s1;
+	ss2 = (const unsigned char *)s2;
 	while (c < n)
 	{
-		if (s1[c] != s2[c])
-		{
-			return (s1[c] - s2[c]);
-		}
+		if (ss1[c] != ss2[c])
+			return (ss1[c] - ss2[c]);
 		c++;
 	}
 	return (0);

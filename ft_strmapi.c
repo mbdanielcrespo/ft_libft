@@ -6,13 +6,13 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:47:51 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/18 15:11:27 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/23 20:03:43 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(t_u32, t_i8))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	t_u32	c;
 	char	*str;

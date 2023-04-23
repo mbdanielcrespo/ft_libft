@@ -6,7 +6,7 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:49:41 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/19 17:37:44 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/23 20:22:13 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ void	ft_putnbr_fd(t_i32 n, t_i32 fd)
 /*
 int	main()
 {
-	ft_putnbr_fd(-2147483648, 1);
-	ft_putnbr_fd(345, 1);
 	ft_putnbr_fd(0, 1);
+	ft_putnbr_fd(10000043, 1);
+	ft_putnbr_fd(-10000043, 1);
+	ft_putnbr_fd(2147483647, 1);
+	ft_putnbr_fd(-2147483648, 1);
 }
 */

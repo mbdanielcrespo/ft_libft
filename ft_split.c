@@ -6,7 +6,7 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 13:23:59 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/21 20:28:09 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/23 20:27:27 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static t_i32	ft_count_words(char const *s, char ch)
 
 	c = 0;
 	w = 0;
+	if (ch == '\0')
+		return (1);
 	while (s[c] != '\0')
 	{
 		while (s[c] == ch)
@@ -31,7 +33,7 @@ static t_i32	ft_count_words(char const *s, char ch)
 	return (w);
 }
 
-char	*ft_wrdup(char const *s, char ch, char **strs)
+static char	*ft_wrdup(char const *s, char ch, char **strs)
 {
 	t_i32	c;
 	char	*str;
@@ -57,22 +59,28 @@ char	**ft_split(char const *s, char ch)
 {
 	char	**strz;
 	char	**strs;
-	
+
 	strs = (char **)malloc((ft_count_words(s, ch) + 1) * sizeof(char *));
 	if (!strs)
 		return (NULL);
 	strz = strs;
-	while (*s != '\0')
+	if (*s != '\0' && ch == '\0')
+	{
+		*strs++ = ft_strdup((char *)s);
+		*strs = NULL;
+		return (strz);
+	}
+	while (*s != '\0' && ch != '\0')
 	{
 		if (*s != '\0' && *s != ch)
-                        s = ft_wrdup(s, ch, strs++);
+			s = ft_wrdup(s, ch, strs++);
 		while (*s == ch)
-			s++;		
+			s++;
 	}
-	strs = NULL;
+	*strs = NULL;
 	return (strz);
 }
-
+/*
 int	main()
 {
 	t_i32	c;
@@ -80,15 +88,14 @@ int	main()
 	
 	c = 0;
 
-	strs = ft_split("\0aa\0bbb", '\0');
-	printf("Input str -> \\0aa\\0bbb");
+	strs = ft_split("nonempty", '\0');
+	printf("Input str -> nonempty\n");
 	while (strs[c] != NULL)
 	{
-		printf("Spit str -> %s\n", strs[c]);
+		printf("Split str -> %s\n", strs[c]);
 		c++;
 	}
 	strs = ft_split("      split       this for   me  !       ", ' ');
-        printf("Input str ->       split       this for   me  !       , del -> \' \'\n");
         while (strs[c] != NULL)
         {
                 printf("Spit str -> %s\n", strs[c]);
@@ -97,4 +104,4 @@ int	main()
 
         return (0);
 }
-
+*/

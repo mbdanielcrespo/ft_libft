@@ -6,19 +6,17 @@
 /*   By: danalmei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 14:52:32 by danalmei          #+#    #+#             */
-/*   Updated: 2023/04/18 17:33:35 by danalmei         ###   ########.fr       */
+/*   Updated: 2023/04/23 19:03:11 by danalmei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *str, t_u8 ch)
+char	*ft_strrchr(const char *str, char u_ch)
 {
 	t_size	len;
 	char	*last;
-	t_u8	u_ch;
 
-	u_ch = (t_u8)ch;
 	last = NULL;
 	len = ft_strlen(str);
 	if (!u_ch)
